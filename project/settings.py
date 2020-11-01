@@ -1,0 +1,5 @@
+MONGO_HOST = 'mongo'
+MONGO_DB = 'dojo'
+MONGO_USERNAME = 'root'
+MONGO_PASSWORD = 'root-pass'
+MONGO_URI = f'mongodb://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_HOST}:27017'

@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root-pass
+
+  dojo-fastapi:
+    image: dojo-fastapi-dev
+    build:
+      context: .
+    restart: always
+    ports:
+      - "8008:8008"
+    command: uvicorn main:app --host 0.0.0.0 --port 8008 --reload
+    depends_on:
+      - mongo
+    volumes:
+      - ./project:/home/app
