@@ -24,9 +24,9 @@ class BookDAO:
     async def get_all_books(
             self,
             ) -> AsyncGenerator[Optional[DBBookSchema], None]:
-        documents = self.driver.get_all()
+        documents = await self.driver.get_all()
 
-        async for document in await documents:
+        async for document in documents:
 
             try:
                 entity = DBBookSchema(**document)

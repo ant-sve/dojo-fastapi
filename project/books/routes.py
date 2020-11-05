@@ -12,6 +12,9 @@ from .schemas import (
     ResponseRemoveSchema,
 )
 
+ROUTE_PREFIX = '/api/books'
+TAGS = ['books']
+
 books_router = APIRouter()
 
 _dao = BookDAO(driver=MongoDriver, collection_name='myCollection')
